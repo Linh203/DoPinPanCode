@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1063080287250",
+    "firebase_url": "https://dopinpan-139f7-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "dopinpan-139f7",
+    "storage_bucket": "dopinpan-139f7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063080287250:android:f9f9d105d63aba6b494ccb",
+        "android_client_info": {
+          "package_name": "com.example.dopinpan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHnPCWhosr-9i6wWgNDvKS3JWWE-nNKOs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/ic_launcher_background"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.gallery.GalleryFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/btn_orderhistory1"
+            android:gravity="center"
+            android:background="#41C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:src="@drawable/clipboard"/>
+            <TextView
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="25dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Đang Chờ Xác Nhận"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/btn_orderplaced1"
+            android:gravity="center"
+            android:background="#41C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:src="@drawable/clipboard"/>
+            <TextView
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="25dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Đang Giao"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/btn_ordershipped1"
+            android:gravity="center"
+            android:background="#41C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:src="@drawable/clipboard"/>
+            <TextView
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="25dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Đã Giao"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/btn_orderremoved1"
+            android:gravity="center"
+            android:background="#41C9FF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:src="@drawable/clipboard"/>
+            <TextView
+                android:layout_weight="2"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:textColor="@color/ic_launcher_background"
+                android:textSize="25dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Đã Hủy"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</LinearLayout>

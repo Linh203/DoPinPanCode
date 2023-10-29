@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#EFEFEF"
+    android:id="@+id/drawer_layout"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".UserProfile">
+
+<com.makeramen.roundedimageview.RoundedImageView
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center"
+    app:riv_corner_radius="30dp"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:id="@+id/user_img"
+    android:src="@drawable/logo"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="#4CCCFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên :"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp" />
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/user_name"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UserName"
+                android:textStyle="bold"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="#4CCCFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Số Điện Thoại :"
+                android:textColor="@color/black"
+
+                android:textStyle="bold"
+                android:textSize="20dp" />
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/user_phone"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UserPhone"
+                android:textStyle="bold"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="#4CCCFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Địa Chỉ :"
+                android:textColor="@color/black"
+
+                android:textStyle="bold"
+                android:textSize="20dp" />
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/user_address"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UserAddress"
+                android:textStyle="bold"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_margin="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:background="#4CCCFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email :"
+                android:textColor="@color/black"
+
+                android:textStyle="bold"
+                android:textSize="20dp" />
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/user_email"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UserEmail"
+                android:textStyle="bold"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chỉnh Sửa Thông Tin"
+        android:backgroundTint="@color/colorAccent"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/btn_edituser"/>
+    <Button
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đổi Mật Khẩu"
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:backgroundTint="#96FF83"
+        android:id="@+id/btn_changepass"/>
+
+
+
+
+
+
+</LinearLayout>

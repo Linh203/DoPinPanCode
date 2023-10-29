@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ic_launcher_background"
+    android:orientation="vertical"
+    tools:context=".LogInActivity">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chào Mừng Trở Lại !"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#00B7FF"/>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/edt_phone1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Số Điện Thoại"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/edt_pass1"
+            android:layout_marginTop="10dp"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mật Khẩu"
+            android:textColor="@color/black"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.rey.material.widget.CheckBox
+                android:id="@+id/ckbremember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lưu đăng nhập ?"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="15dp"
+                app:cbd_strokeColor="@color/black"
+                style="@style/Material.Drawable.CheckBox"/>
+            <TextView
+                android:layout_marginLeft="100dp"
+                android:textColor="@color/black"
+                android:id="@+id/tv_forgotpass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quên Mật Khẩu ?"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đăng Nhập"
+            android:textColor="@color/ic_launcher_background"
+            android:backgroundTint="#00ADFD"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tv_createacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Bạn Chưa Có Tài Khoản ?"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Đăng Ký"
+            android:layout_marginLeft="10dp"
+            android:textColor="#007BFF"/>
+    </LinearLayout>
+
+
+</LinearLayout>
