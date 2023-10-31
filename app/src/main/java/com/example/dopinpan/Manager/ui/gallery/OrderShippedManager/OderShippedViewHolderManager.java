@@ -2,6 +2,7 @@ package com.example.dopinpan.Manager.ui.gallery.OrderShippedManager;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,8 @@ public class OderShippedViewHolderManager extends RecyclerView.ViewHolder  {
     public Button btnDetail;
 
 
+
+
     public OderShippedViewHolderManager(@NonNull View itemView) {
         super(itemView);
 
@@ -27,6 +30,7 @@ public class OderShippedViewHolderManager extends RecyclerView.ViewHolder  {
         txtDateTime=itemView.findViewById(R.id.oder_datetime6);
 
         btnDetail=itemView.findViewById(R.id.btn_detailorder6);
+
 
 
 

@@ -75,7 +75,7 @@ public class OrderPlaced extends AppCompatActivity {
                 oderViewHolder.txtOderStatus.setText(Common.convertCodeToStatus(request.getStatus()));
                 oderViewHolder.txtOderPhone.setText(request.getPhone());
                 oderViewHolder.txtOderAddress.setText(request.getAddress());
-                oderViewHolder.txtOderTotal.setText("$"+request.getTotal());
+                oderViewHolder.txtOderTotal.setText("$" + request.getTotal());
                 oderViewHolder.txtDateTime.setText(request.getStartAt());
 
                 oderViewHolder.btnDetail.setOnClickListener(new View.OnClickListener() {
@@ -174,7 +174,7 @@ public class OrderPlaced extends AppCompatActivity {
                 String formattedYear = year.format(c.getTime());
 
                 Request request = new Request(Common.currentUser.getPhone(), Common.currentUser.getName(), Common.currentUser.getAddress(), item.getTotal(), item.getFoods(), "3", formattedDate);
-                Request statictical=new Request(Common.currentUser.getPhone(), Common.currentUser.getName(), Common.currentUser.getAddress(), item.getTotal(), "3", formattedDate,formattedDay,formattedMonth,formattedYear, item.getFoods());
+                Request statictical = new Request(Common.currentUser.getPhone(), Common.currentUser.getName(), Common.currentUser.getAddress(), item.getTotal(), "3", formattedDate, formattedDay, formattedMonth, formattedYear, item.getFoods());
 
                 requests2.child(String.valueOf(System.currentTimeMillis())).setValue(request);
                 requests3.child(String.valueOf(System.currentTimeMillis())).setValue(statictical);
