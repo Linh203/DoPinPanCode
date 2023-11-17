@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".Manager.ui.home.HomeManagerFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -23,7 +27,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="5dp"
                 android:orientation="vertical">
 
@@ -46,7 +50,7 @@
                         android:id="@+id/tv_allfood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="150dp"
+                        android:layout_marginLeft="140dp"
                         android:text="Xem Tất Cả >"
                         android:textColor="@color/ic_launcher_background"
                         android:textSize="20dp"
@@ -54,14 +58,14 @@
 
                 </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerviewfood"
-                    android:layout_width="match_parent"
-                    android:layout_height="800dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/ic_launcher_background" />
-            </LinearLayout>
 
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewfood"
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:layout_margin="10dp"
+                android:background="@color/ic_launcher_background" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,17 +80,17 @@
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerviewhome"
-                    android:layout_width="match_parent"
-                    android:layout_height="1600dp"
-                    android:layout_margin="10dp"
-                    android:background="@color/ic_launcher_background" />
             </LinearLayout>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerviewhome"
+                android:layout_width="match_parent"
+                android:layout_height="1300dp"
+                android:layout_margin="10dp"
+                android:background="@color/ic_launcher_background" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
-</FrameLayout>
+</LinearLayout>

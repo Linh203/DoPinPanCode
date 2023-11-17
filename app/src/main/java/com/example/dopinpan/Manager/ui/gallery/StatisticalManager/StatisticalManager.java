@@ -109,7 +109,7 @@ public class StatisticalManager extends AppCompatActivity {
         final View view = inflater.inflate(R.layout.update_order_layout, null);
 
         spinner = view.findViewById(R.id.statusSpiner);
-        spinner.setItems("","1","2","3","4","5","6","7","8","9","10","11","12");
+        spinner.setItems("Tất Cả","1","2","3","4","5","6","7","8","9","10","11","12");
 
         alertDialog.setView(view);
 
@@ -117,58 +117,110 @@ public class StatisticalManager extends AppCompatActivity {
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                month=String.valueOf(spinner.getSelectedIndex());
                 txtTotal.setText("");
                 ProgressDialog dialog = new ProgressDialog(StatisticalManager.this);
                 dialog.setMessage("Vui Lòng Đợi ...");
                 dialog.show();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        dialogInterface.dismiss();
-                        month=String.valueOf(spinner.getSelectedIndex());
-                        adapter = new FirebaseRecyclerAdapter<Request, OderShippedViewHolderManager>(Request.class, R.layout.oder_shipped_layout_manager, OderShippedViewHolderManager.class, statis.orderByChild("month").equalTo(month)) {
-                            @Override
-                            protected void populateViewHolder(OderShippedViewHolderManager oderViewHolder, Request request, int i) {
-                                oderViewHolder.txtOderId.setText(adapter.getRef(i).getKey());
-                                oderViewHolder.txtOderStatus.setText(Common.convertCodeToStatus(request.getStatus()));
-                                oderViewHolder.txtOderPhone.setText(request.getPhone());
-                                oderViewHolder.txtOderAddress.setText(request.getAddress());
-                                oderViewHolder.txtOderTotal.setText("$"+request.getTotal());
-                                oderViewHolder.txtDateTime.setText(request.getStartAt());
+                if(Integer.parseInt(month)>0){
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            dialogInterface.dismiss();
+                            adapter = new FirebaseRecyclerAdapter<Request, OderShippedViewHolderManager>(Request.class, R.layout.oder_shipped_layout_manager, OderShippedViewHolderManager.class, statis.orderByChild("month").equalTo(month)) {
+                                @Override
+                                protected void populateViewHolder(OderShippedViewHolderManager oderViewHolder, Request request, int i) {
+                                    oderViewHolder.txtOderId.setText(adapter.getRef(i).getKey());
+                                    oderViewHolder.txtOderStatus.setText(Common.convertCodeToStatus(request.getStatus()));
+                                    oderViewHolder.txtOderPhone.setText(request.getPhone());
+                                    oderViewHolder.txtOderAddress.setText(request.getAddress());
+                                    oderViewHolder.txtOderTotal.setText("$"+request.getTotal());
+                                    oderViewHolder.txtDateTime.setText(request.getStartAt());
 
-                                oderViewHolder.btnDetail.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        Intent intent = new Intent(StatisticalManager.this, OrderDetail.class);
-                                        Common.currentRequest = request;
-                                        intent.putExtra("OrderId", adapter.getRef(i).getKey());
-                                        startActivity(intent);
+                                    oderViewHolder.btnDetail.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            Intent intent = new Intent(StatisticalManager.this, OrderDetail.class);
+                                            Common.currentRequest = request;
+                                            intent.putExtra("OrderId", adapter.getRef(i).getKey());
+                                            startActivity(intent);
+                                        }
+                                    });
+                                    new Database(StatisticalManager.this).addToStatis(new Statictical(
+                                            request.getDay(),
+                                            request.getMonth(),
+                                            request.getYear(),
+                                            request.getTotal()));
+
+                                    staticticals = new Database(StatisticalManager.this).getStatis();
+                                    int total = 0;
+
+                                    for (Statictical statis1 : staticticals) {
+                                        total += (Integer.parseInt(statis1.getTotal()));
                                     }
-                                });
-                                new Database(StatisticalManager.this).addToStatis(new Statictical(
-                                        request.getDay(),
-                                        request.getMonth(),
-                                        request.getYear(),
-                                        request.getTotal()));
+                                    Locale locale = new Locale("en", "US");
+                                    NumberFormat format = NumberFormat.getCurrencyInstance(locale);
 
-                                staticticals = new Database(StatisticalManager.this).getStatis();
-                                int total = 0;
+                                    txtTotal.setText(format.format(total));
 
-                                for (Statictical statis1 : staticticals) {
-                                    total += (Integer.parseInt(statis1.getTotal()));
                                 }
-                                Locale locale = new Locale("en", "US");
-                                NumberFormat format = NumberFormat.getCurrencyInstance(locale);
+                            };
+                            adapter.notifyDataSetChanged();
+                            recyclerView.setAdapter(adapter);
+                            dialog.dismiss();
+                        }
+                    }, 2000);
+                }
+                else {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            dialogInterface.dismiss();
+                            adapter = new FirebaseRecyclerAdapter<Request, OderShippedViewHolderManager>(Request.class, R.layout.oder_shipped_layout_manager, OderShippedViewHolderManager.class, statis) {
+                                @Override
+                                protected void populateViewHolder(OderShippedViewHolderManager oderViewHolder, Request request, int i) {
+                                    oderViewHolder.txtOderId.setText(adapter.getRef(i).getKey());
+                                    oderViewHolder.txtOderStatus.setText(Common.convertCodeToStatus(request.getStatus()));
+                                    oderViewHolder.txtOderPhone.setText(request.getPhone());
+                                    oderViewHolder.txtOderAddress.setText(request.getAddress());
+                                    oderViewHolder.txtOderTotal.setText("$"+request.getTotal());
+                                    oderViewHolder.txtDateTime.setText(request.getStartAt());
 
-                                txtTotal.setText(format.format(total));
+                                    oderViewHolder.btnDetail.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            Intent intent = new Intent(StatisticalManager.this, OrderDetail.class);
+                                            Common.currentRequest = request;
+                                            intent.putExtra("OrderId", adapter.getRef(i).getKey());
+                                            startActivity(intent);
+                                        }
+                                    });
+                                    new Database(StatisticalManager.this).addToStatis(new Statictical(
+                                            request.getDay(),
+                                            request.getMonth(),
+                                            request.getYear(),
+                                            request.getTotal()));
 
-                            }
-                        };
-                        adapter.notifyDataSetChanged();
-                        recyclerView.setAdapter(adapter);
-                        dialog.dismiss();
-                    }
-                }, 2000);
+                                    staticticals = new Database(StatisticalManager.this).getStatis();
+                                    int total = 0;
+
+                                    for (Statictical statis1 : staticticals) {
+                                        total += (Integer.parseInt(statis1.getTotal()));
+                                    }
+                                    Locale locale = new Locale("en", "US");
+                                    NumberFormat format = NumberFormat.getCurrencyInstance(locale);
+
+                                    txtTotal.setText(format.format(total));
+
+                                }
+                            };
+                            adapter.notifyDataSetChanged();
+                            recyclerView.setAdapter(adapter);
+                            dialog.dismiss();
+                        }
+                    }, 2000);
+                }
+
             }
         });
         alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
