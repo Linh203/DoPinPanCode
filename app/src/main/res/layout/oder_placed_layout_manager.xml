@@ -32,6 +32,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="@color/black"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Mã Đơn Hàng :"
@@ -53,6 +55,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="@color/black"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Trạng Thái :"
@@ -75,6 +79,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="@color/black"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Giá Tiền :"
@@ -98,6 +104,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="@color/black"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Số Điện Thoại :"
@@ -119,6 +127,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="@color/black"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Địa Chỉ :"
@@ -141,6 +151,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="@color/black"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thời Gian :"
@@ -165,6 +177,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.dopinpan.Common.Common;
@@ -27,11 +28,12 @@ public class OrderRemoved extends AppCompatActivity {
     private DatabaseReference requests;
 
     private RecyclerView recyclerView;
-
+    private ImageView btnBack;
 
     private RecyclerView.LayoutManager layoutManager;
 
     private FirebaseRecyclerAdapter<Request, OderRemovedViewHolder> adapter;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,15 @@ public class OrderRemoved extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests Removed");
+
+        btnBack = findViewById(R.id.btn_back10);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         recyclerView = findViewById(R.id.listoderremoved);
         recyclerView.setHasFixedSize(true);
@@ -54,6 +65,7 @@ public class OrderRemoved extends AppCompatActivity {
 
 
     }
+
     private void loadOders() {
 
         String phone = Common.currentUser.getPhone().toString();
@@ -64,7 +76,7 @@ public class OrderRemoved extends AppCompatActivity {
                 oderViewHolder.txtOderStatus.setText(Common.convertCodeToStatus(request.getStatus()));
                 oderViewHolder.txtOderPhone.setText(request.getPhone());
                 oderViewHolder.txtOderAddress.setText(request.getAddress());
-                oderViewHolder.txtOderTotal.setText("$"+request.getTotal());
+                oderViewHolder.txtOderTotal.setText("$" + request.getTotal());
                 oderViewHolder.txtDateTime.setText(request.getStartAt());
                 oderViewHolder.txtReasonRemove.setText(request.getMoment());
 

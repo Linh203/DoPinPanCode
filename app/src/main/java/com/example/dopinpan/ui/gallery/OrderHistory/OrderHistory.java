@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.dopinpan.Common.Common;
@@ -36,6 +37,8 @@ public class OrderHistory extends AppCompatActivity {
     private RecyclerView recyclerView;
     private EditText edtreason;
 
+    private ImageView btnBack;
+
 
     private RecyclerView.LayoutManager layoutManager;
 
@@ -51,6 +54,13 @@ public class OrderHistory extends AppCompatActivity {
         requests1 = database.getReference("Requests Removed");
         requests = database.getReference("Requests");
 
+        btnBack=findViewById(R.id.btn_back8);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         recyclerView = findViewById(R.id.listodersplaced);
         recyclerView.setHasFixedSize(true);

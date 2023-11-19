@@ -31,6 +31,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="@color/black"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Mã Đơn Hàng :"
@@ -52,6 +54,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="@color/black"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Trạng Thái :"
@@ -74,6 +78,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="@color/black"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Giá Tiền :"
@@ -97,6 +103,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="@color/black"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Số Điện Thoại :"
@@ -118,6 +126,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="@color/black"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Địa Chỉ :"
@@ -140,6 +150,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <TextView
+                        android:textColor="@color/black"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Thời Gian :"
@@ -166,29 +178,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:background="@color/white"
+            android:orientation="vertical"
             android:layout_weight="4">
-            <Button
-                android:layout_margin="5dp"
-                android:textSize="15dp"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_orderreceive2"
-                android:backgroundTint="#5E9FFF"
-                android:textColor="@color/ic_launcher_background"
-                android:text="Đã Nhận"/>
+                android:orientation="horizontal">
+                <Button
+                    android:layout_margin="5dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_orderreceive2"
+                    android:backgroundTint="#5E9FFF"
+                    android:textColor="@color/ic_launcher_background"
+                    android:text="Đã Nhận"/>
+                <Button
+                    android:layout_margin="5dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_orderremove2"
+                    android:backgroundTint="#5E9FFF"
+                    android:textColor="@color/ic_launcher_background"
+                    android:text="Hủy Đơn"/>
+            </LinearLayout>
+
             <Button
                 android:layout_margin="5dp"
-                android:textSize="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_orderremove2"
-                android:backgroundTint="#5E9FFF"
-                android:textColor="@color/ic_launcher_background"
-                android:text="Hủy Đơn"/>
-            <Button
-                android:layout_margin="5dp"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_detail2"

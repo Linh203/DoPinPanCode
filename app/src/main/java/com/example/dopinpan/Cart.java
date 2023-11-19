@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -84,6 +85,8 @@ public class Cart extends AppCompatActivity {
     private LinearLayout cartback;
 
     private FirebaseDatabase database;
+
+    private ImageView btnBack;
     private FirebaseRecyclerAdapter<Carts, CartsViewHolder> adapters;
     private DatabaseReference requests, table_user, carts;
     String amout = "";
@@ -97,6 +100,7 @@ public class Cart extends AppCompatActivity {
 
         txtTotoal = findViewById(R.id.total);
         btnplaceorder = findViewById(R.id.placeorder);
+        btnBack=findViewById(R.id.btn_back2);
 
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests");
@@ -117,6 +121,13 @@ public class Cart extends AppCompatActivity {
 
         new Database(Cart.this).cleanCart();
         loadFoods();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         btnplaceorder.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -46,6 +46,8 @@ public class FoodList extends AppCompatActivity {
     private List<String> suggetsList = new ArrayList<>();
     private SearchView searchView;
 
+    private ImageView btnBack;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -58,6 +60,7 @@ public class FoodList extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         foodList = database.getReference("Foods");
         favorites = database.getReference("Favorites");
+        btnBack=findViewById(R.id.btn_back3);
 
 
 
@@ -67,6 +70,13 @@ public class FoodList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         if (getIntent() != null)

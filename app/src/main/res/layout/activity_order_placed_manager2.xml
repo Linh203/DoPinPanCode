@@ -4,7 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.OrderHistory.OrderHistory">
+    android:orientation="vertical"
+    android:background="#D5FDFF"
+    tools:context=".Manager.ui.gallery.OrderPlacedManager.OrderPlacedManager" >
+    <ImageView
+        android:id="@+id/btn_back9"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_arrow_back_24"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listoderplacedmanager"
         android:layout_width="match_parent"

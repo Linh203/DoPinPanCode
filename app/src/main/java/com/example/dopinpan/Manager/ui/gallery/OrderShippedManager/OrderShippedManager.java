@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.dopinpan.Common.Common;
 import com.example.dopinpan.Manager.ui.gallery.OrderHistoryManager.OderHistoryViewHolderManager;
@@ -29,6 +30,8 @@ public class OrderShippedManager extends AppCompatActivity {
     private FirebaseRecyclerAdapter<Request, OderShippedViewHolderManager> adapter;
 
     private RecyclerView recyclerView;
+
+    private ImageView btnBack;
     private RecyclerView.LayoutManager layoutManager;
 
     @SuppressLint("MissingInflatedId")
@@ -39,6 +42,14 @@ public class OrderShippedManager extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests Shipped");
+
+        btnBack=findViewById(R.id.btn_back13);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         recyclerView=findViewById(R.id.listodershippedmanager);
         recyclerView.setHasFixedSize(true);

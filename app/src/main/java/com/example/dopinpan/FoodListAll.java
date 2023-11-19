@@ -51,6 +51,7 @@ public class FoodListAll extends AppCompatActivity {
     private List<String> suggestList = new ArrayList<>();
     private MaterialSearchBar materialSearchBar;
     private Database localDB;
+    private ImageView btnBack;
 
 
     @SuppressLint("MissingInflatedId")
@@ -63,6 +64,7 @@ public class FoodListAll extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         foodList = database.getReference("Foods");
         localDB = new Database(this);
+        btnBack=findViewById(R.id.btn_back4);
 
 
         recyclerView.setHasFixedSize(true);
@@ -74,6 +76,13 @@ public class FoodListAll extends AppCompatActivity {
             Toast.makeText(this, "Vui Lòng Kết Nối Mạng !!", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         materialSearchBar = findViewById(R.id.searchBar);

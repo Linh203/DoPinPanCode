@@ -2,6 +2,8 @@ package com.example.dopinpan;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +20,8 @@ public class OrderDetail extends AppCompatActivity {
     RecyclerView lstFoods;
     RecyclerView.LayoutManager layoutManager;
 
+    private ImageView btnBack;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class OrderDetail extends AppCompatActivity {
         order_total = findViewById(R.id.oder_total1);
         order_address = findViewById(R.id.oder_address1);
         order_datetime = findViewById(R.id.oder_datetime2);
+        btnBack=findViewById(R.id.btn_back5);
 
         lstFoods = findViewById(R.id.lstFoods);
         lstFoods.setHasFixedSize(true);
@@ -42,6 +47,13 @@ public class OrderDetail extends AppCompatActivity {
         order_total.setText("$"+Common.currentRequest.getTotal());
         order_address.setText(Common.currentRequest.getAddress());
         order_datetime.setText(Common.currentRequest.getStartAt());
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         OrderDeatilAdapter adapter = new OrderDeatilAdapter(Common.currentRequest.getFoods());

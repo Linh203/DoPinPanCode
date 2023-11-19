@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,8 @@ public class LogInActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference table_user;
 
+    private ImageView btnBack;
+
 
     private CheckBox checkBox;
 
@@ -57,6 +60,7 @@ public class LogInActivity extends AppCompatActivity {
         tvforgotpass = findViewById(R.id.tv_forgotpass);
         tvcreateacc = findViewById(R.id.tv_createacc);
         btnlogin = findViewById(R.id.btn_login);
+        btnBack=findViewById(R.id.btn_back1);
 
         checkBox = findViewById(R.id.ckbremember);
 
@@ -74,6 +78,13 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showForgotPass();
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 

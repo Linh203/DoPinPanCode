@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.example.dopinpan.Common.Common;
 import com.example.dopinpan.Model.Request;
@@ -39,6 +40,7 @@ public class OrderHistoryManager extends AppCompatActivity {
     private MaterialSpinner spinner;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
+    private ImageView btnBack;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,15 @@ public class OrderHistoryManager extends AppCompatActivity {
         requests = database.getReference("Requests");
         requests1 = database.getReference("Requests Placed");
         requests2 = database.getReference("Requests Removed");
+
+        btnBack=findViewById(R.id.btn_back6);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
 

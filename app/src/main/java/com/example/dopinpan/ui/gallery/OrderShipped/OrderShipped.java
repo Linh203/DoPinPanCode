@@ -8,6 +8,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.dopinpan.Common.Common;
@@ -31,6 +32,8 @@ public class OrderShipped extends AppCompatActivity {
 
     private RecyclerView.LayoutManager layoutManager;
 
+    private ImageView btnBack;
+
     private FirebaseRecyclerAdapter<Request, OderShippedViewHolder> adapter;
 
     @SuppressLint("MissingInflatedId")
@@ -42,6 +45,8 @@ public class OrderShipped extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests Shipped");
 
+        btnBack=findViewById(R.id.btn_back12);
+
         recyclerView = findViewById(R.id.listodershipped);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -52,6 +57,13 @@ public class OrderShipped extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Vui Lòng Kết Nối Mạng !!", Toast.LENGTH_SHORT).show();
         }
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
     }
     private void loadOders() {

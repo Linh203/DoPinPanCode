@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,7 +26,7 @@ public class OrderRemovedManager extends AppCompatActivity {
     private DatabaseReference requests;
 
     private RecyclerView recyclerView;
-
+private ImageView btnBack;
 
     private RecyclerView.LayoutManager layoutManager;
 
@@ -38,6 +39,14 @@ public class OrderRemovedManager extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         requests = database.getReference("Requests Removed");
+
+        btnBack=findViewById(R.id.btn_back11);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         recyclerView = findViewById(R.id.listoderremovedmanager);
         recyclerView.setHasFixedSize(true);

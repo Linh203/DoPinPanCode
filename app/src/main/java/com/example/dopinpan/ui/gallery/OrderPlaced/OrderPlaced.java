@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.dopinpan.Common.Common;
@@ -37,6 +38,7 @@ public class OrderPlaced extends AppCompatActivity {
     private EditText edtreason;
 
     private RecyclerView.LayoutManager layoutManager;
+    private ImageView btnBack;
 
     private FirebaseRecyclerAdapter<Request, OderPlacedViewHolder> adapter;
 
@@ -51,6 +53,14 @@ public class OrderPlaced extends AppCompatActivity {
         requests1 = database.getReference("Requests Removed");
         requests2 = database.getReference("Requests Shipped");
         requests3 = database.getReference("Statistical");
+
+        btnBack=findViewById(R.id.btn_back7);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         recyclerView = findViewById(R.id.listodersonmyway);

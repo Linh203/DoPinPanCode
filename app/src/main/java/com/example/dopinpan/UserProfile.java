@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +53,7 @@ public class UserProfile extends AppCompatActivity {
     private Uri saveUri;
     private StorageReference storageReference;
     private FirebaseStorage storage;
+    private ImageView btnBack;
 
 
     private User newUser;
@@ -73,6 +75,14 @@ public class UserProfile extends AppCompatActivity {
         users = database.getReference("User");
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
+
+        btnBack=findViewById(R.id.btn_back15);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
 
         userName = findViewById(R.id.user_name);

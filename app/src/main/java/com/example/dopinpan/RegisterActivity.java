@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -34,6 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnregister;
     private LinearLayout tvbacktologin;
 
+    private ImageView btnBack;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnregister = findViewById(R.id.btn_resgister);
         tvbacktologin = findViewById(R.id.tv_backtologin);
         edtsecureCode=findViewById(R.id.edt_secureCode);
+        btnBack=findViewById(R.id.btn_back);
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference table_user = database.getReference("User");
@@ -56,6 +60,13 @@ public class RegisterActivity extends AppCompatActivity {
         dialog.setMessage("Vui Lòng Đợi ...");
 
         Handler handler = new Handler();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         tvbacktologin.setOnClickListener(new View.OnClickListener() {
             @Override

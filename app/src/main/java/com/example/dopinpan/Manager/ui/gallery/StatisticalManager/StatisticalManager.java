@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -44,6 +45,8 @@ public class StatisticalManager extends AppCompatActivity {
     DatabaseReference statis, requests;
     private MaterialSpinner spinner;
 
+    private ImageView btnBack;
+
     private FirebaseRecyclerAdapter<Request, OderShippedViewHolderManager> adapter;
  //   private FirebaseRecyclerAdapter<Statictical, OderShippedViewHolderManager> adapter1;
 
@@ -57,7 +60,7 @@ public class StatisticalManager extends AppCompatActivity {
     String month;
 
 
-    private TextView txtTotal;
+    private TextView txtTotal,txtTongThuNhap;
 
 
 
@@ -72,9 +75,18 @@ public class StatisticalManager extends AppCompatActivity {
         requests = database.getReference("Requests Shipped");
         statis = database.getReference("Statistical");
 
+        btnBack=findViewById(R.id.btn_back14);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
 
         txtTotal = findViewById(R.id.txtTotal);
+        txtTongThuNhap=findViewById(R.id.txtTongThuNhap);
         btnLoc=findViewById(R.id.btn_loc);
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
@@ -118,8 +130,9 @@ public class StatisticalManager extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 month=String.valueOf(spinner.getSelectedIndex());
-                txtTotal.setText("");
                 ProgressDialog dialog = new ProgressDialog(StatisticalManager.this);
+                txtTotal.setText("$0");
+                txtTongThuNhap.setText("Tổng Thu Nhập Tháng ");
                 dialog.setMessage("Vui Lòng Đợi ...");
                 dialog.show();
                 if(Integer.parseInt(month)>0){
@@ -162,6 +175,8 @@ public class StatisticalManager extends AppCompatActivity {
                                     NumberFormat format = NumberFormat.getCurrencyInstance(locale);
 
                                     txtTotal.setText(format.format(total));
+                                    txtTongThuNhap.setText("Tổng Thu Nhập Tháng "+month);
+
 
                                 }
                             };
@@ -211,6 +226,8 @@ public class StatisticalManager extends AppCompatActivity {
                                     NumberFormat format = NumberFormat.getCurrencyInstance(locale);
 
                                     txtTotal.setText(format.format(total));
+                                    txtTongThuNhap.setText("Tổng Thu Nhập Tất Cả ");
+
 
                                 }
                             };
@@ -233,7 +250,11 @@ public class StatisticalManager extends AppCompatActivity {
     }
 
     private void loadOders() {
-        adapter = new FirebaseRecyclerAdapter<Request, OderShippedViewHolderManager>(Request.class, R.layout.oder_shipped_layout_manager, OderShippedViewHolderManager.class, statis) {
+        Calendar c = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("MM");
+        String formattedDate = df.format(c.getTime());
+        txtTongThuNhap.setText("Tổng Thu Nhập Tháng "+formattedDate);
+        adapter = new FirebaseRecyclerAdapter<Request, OderShippedViewHolderManager>(Request.class, R.layout.oder_shipped_layout_manager, OderShippedViewHolderManager.class, statis.orderByChild("month").equalTo(formattedDate)) {
             @Override
             protected void populateViewHolder(OderShippedViewHolderManager oderViewHolder, Request request, int i) {
                 oderViewHolder.txtOderId.setText(adapter.getRef(i).getKey());

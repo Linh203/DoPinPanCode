@@ -8,6 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.dopinpan.Common.Common;
@@ -57,6 +59,8 @@ public class FoodListManager extends AppCompatActivity {
     private DatabaseReference foodlist;
     private MaterialEditText edtName, edtDescription, edtPrice, edtDiscount;
 
+    private ImageView btnBack;
+
     private Food newFood;
     private FirebaseStorage storage;
     private StorageReference storageReference;
@@ -67,6 +71,7 @@ public class FoodListManager extends AppCompatActivity {
 
     private FirebaseRecyclerAdapter<Food, FoodViewHolderManager> adapter;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +80,13 @@ public class FoodListManager extends AppCompatActivity {
         foodlist = database.getReference("Foods");
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-
+        btnBack = findViewById(R.id.btn_back16);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         recyclerView = findViewById(R.id.recycler_foodlistmanager);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -147,7 +158,7 @@ public class FoodListManager extends AppCompatActivity {
                         dialog.dismiss();
                         dialogInterface.dismiss();
                     }
-                },2000);
+                }, 2000);
 
             }
         });
@@ -269,7 +280,7 @@ public class FoodListManager extends AppCompatActivity {
                         dialog.dismiss();
                         Toast.makeText(FoodListManager.this, "Xóa Thành Công", Toast.LENGTH_SHORT).show();
                     }
-                },2000);
+                }, 2000);
             }
         });
         alertDialog.setNegativeButton("Thoát", new DialogInterface.OnClickListener() {
