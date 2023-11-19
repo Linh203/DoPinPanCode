@@ -49,9 +49,11 @@ II. PHÂN TÍCH CHI TIẾT CÁC CHỨC NĂNG CHÍNH
     
     7. Chat bot: Người dùng có thể trò chuyện với chat bot để biết thêm chi tiết về sản phẩm.
     
-    8. Xem thông tin chi tiết sản phẩm: Người dùng có thể xem thông tin chi tiết về từng sản phẩm (mô tả, giá, ảnh, v.v.).
+    8. Xem thông tin chi tiết sản phẩm: Người dùng có thể xem thông tin chi tiết về từng sản phẩm
+       (mô tả, giá, ảnh, v.v.).
     
-    9. Xem chương trình ưu đãi: Người dùng có thể xem các chương trình ưu đãi đang diễn ra và áp dụng cho đơn hàng của mình.
+    9. Xem chương trình ưu đãi: Người dùng có thể xem các chương trình ưu đãi đang diễn ra
+       và áp dụng cho đơn hàng của mình.
     
     10. Xem blog giới thiệu sản phẩm: Người dùng có thể xem các bài viết blog giới thiệu về các sản phẩm.
     
@@ -63,9 +65,11 @@ II. PHÂN TÍCH CHI TIẾT CÁC CHỨC NĂNG CHÍNH
     
     14. Quản lý danh mục sản phẩm: Người quản trị có thể quản lý danh mục sản phẩm (thêm, sửa, xóa).
     
-    15. Quản lý đơn hàng: Người quản trị có thể xem danh sách đơn hàng, xem chi tiết từng đơn hàng, cập nhật trạng thái đơn hàng.
+    15. Quản lý đơn hàng: Người quản trị có thể xem danh sách đơn hàng, xem chi tiết từng đơn hàng,
+        cập nhật trạng thái đơn hàng.
     
-    16. Báo cáo thống kê doanh thu: Người quản trị có thể xem báo cáo thống kê doanh thu theo thời gian (ngày, tuần, tháng, quý, năm).
+    16. Báo cáo thống kê doanh thu: Người quản trị có thể xem báo cáo thống kê doanh thu theo thời gian
+        (ngày, tuần, tháng, quý, năm).
 
 III. PHÂN TÍCH VÀ THIẾT KẾ CẤU TRÚC DỮ LIỆU
 
