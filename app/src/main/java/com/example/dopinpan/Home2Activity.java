@@ -85,7 +85,6 @@ public class Home2Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Home2Activity.this, Cart.class);
                 startActivity(intent);
-
             }
         });
 
@@ -139,10 +138,9 @@ public class Home2Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId() == R.id.refresh) {
-            Intent intent = new Intent(Home2Activity.this, Home2Activity.class);
+        if (item.getItemId() == R.id.search) {
+            Intent intent = new Intent(Home2Activity.this, FoodListAll.class);
             startActivity(intent);
-            finishAffinity();
         }
         return super.onOptionsItemSelected(item);
     }
