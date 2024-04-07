@@ -282,37 +282,40 @@ public class Cart extends AppCompatActivity {
                                 ZaloPaySDK.getInstance().payOrder(Cart.this, token, "demozpdk://app", new PayOrderListener() {
                                     @Override
                                     public void onPaymentSucceeded(String s, String s1, String s2) {
-//                                        Request request = new Request(Common.currentUser.getPhone().toString(), Common.currentUser.getName().toString(), edtadrss.getText().toString(), txtTotoal.getText().toString(), cart);
-//                                        requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
-//
-//                                        Map<String, Object> addressUpdate = new HashMap<>();
-//                                        addressUpdate.put("address", edtadrss.getText().toString());
-//                                        table_user = database.getReference("User");
-//                                        table_user.child(Common.currentUser.getPhone()).updateChildren(addressUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                                            @Override
-//                                            public void onComplete(@NonNull Task<Void> task) {
-//                                                Toast.makeText(Cart.this, "Address Was Updated !", Toast.LENGTH_SHORT).show();
-//                                            }
-//                                        }).addOnFailureListener(new OnFailureListener() {
-//                                            @Override
-//                                            public void onFailure(@NonNull Exception e) {
-//                                                Toast.makeText(Cart.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                                            }
-//                                        });
-//                                        table_user.addListenerForSingleValueEvent(new ValueEventListener() {
-//                                            @Override
-//                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                                User user = snapshot.child(Common.currentUser.getPhone()).getValue(User.class);
-//                                                Common.currentUser = user;
-//                                            }
-//
-//                                            @Override
-//                                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                            }
-//                                        });
-//
-//                                        new Database(getBaseContext()).cleanCart();
+                                        Calendar c = Calendar.getInstance();
+                                        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                                        String formattedDate = df.format(c.getTime());
+                                        Request request = new Request(Common.currentUser.getPhone().toString(), Common.currentUser.getName().toString(), edtadrss.getText().toString(), txtTotoal.getText().toString(), cart,"0", formattedDate);
+                                        requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+
+                                        Map<String, Object> addressUpdate = new HashMap<>();
+                                        addressUpdate.put("address", edtadrss.getText().toString());
+                                        table_user = database.getReference("User");
+                                        table_user.child(Common.currentUser.getPhone()).updateChildren(addressUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(Cart.this, "Address Was Updated !", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(Cart.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                        table_user.addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                User user = snapshot.child(Common.currentUser.getPhone()).getValue(User.class);
+                                                Common.currentUser = user;
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+
+                                        new Database(getBaseContext()).cleanCart();
                                         Toast.makeText(Cart.this, "Thanh Toán Thành Công", Toast.LENGTH_SHORT).show();
                                         finish();
                                     }
